@@ -14,9 +14,7 @@
                         </div>
                     @endif
 
-                    @foreach () 
-
-                    @endforeach
+                    You are logged in!
                 </div>
             </div>
         </div>

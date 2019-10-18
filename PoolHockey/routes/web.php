@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect('/joueurs');
+})->middleware('auth');
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'JoueurController@index')->name('home');
+Route::get('/joueurs', 'JoueurController@index')->name('joueurs.index');
+
+Route::post('/joueurs/{id}', 'JoueurController@update')->name('joueurs.update');

@@ -16,6 +16,7 @@ class CheckMaxUsers
      */
     public function handle($request, Closure $next)
     {
+        
         if (User::count() >= 4) {
             return redirect('login');
         }

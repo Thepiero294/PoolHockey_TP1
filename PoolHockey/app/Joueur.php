@@ -10,4 +10,13 @@ class Joueur extends Model
     {
         return static::all();
     }
+
+    public static function user() {
+        return $this->belongsTo('App\User');
+    }
+
+    public static function getNomParticipantSelonId($id) {
+        $nomParticipant = User::where('id', $id)->first();
+        return $nomParticipant->name;
+    }
 }

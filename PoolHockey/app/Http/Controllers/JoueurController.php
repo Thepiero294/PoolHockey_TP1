@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Joueur;
+use App\Tour;
 
 class JoueurController extends Controller
 {
@@ -69,9 +70,22 @@ class JoueurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $joueur = Joueur::where('id', $id)->first();        
+        $tour = Tour::first();
+        $joueur->id_participant_fk = $tour->id_participant;
+        if ($tour->id_participant == 4) {
+            $tour->id_participant = 1;
+        }
+        else {
+            $tour->id_participant += 1;
+        }
+        $tour->nom_joueur_choisi_tour_precedent = $joueur->nom_complet;
+
+        $joueur->save();
+        $tour->save();
+        return redirect()->route("joueurs.index", $id);
     }
 
     /**

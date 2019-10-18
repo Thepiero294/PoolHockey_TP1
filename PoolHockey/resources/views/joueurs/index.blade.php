@@ -4,9 +4,13 @@
 -->
 
 <link href="/css/app.css" rel="stylesheet">
-        <title>Laravel</title>
+        <title>Sélection des joueurs</title>
+    @extends('layouts.app')
+    @section('content')
     <div class="container">
         <h1 >Joueurs</h1>
+        <h2> Tour du participant: {{ App\User::participantActuel() }}<h2>
+        <h3> Joueur précédent choisi: {{App\Tour::joueurChoisiPrecedent()}} <h3>
         <table class="table table-striped">
         <thead>
             <tr>
@@ -24,9 +28,22 @@
                     <td> {{ $joueur->equipe }} </td>
                     <td> {{ $joueur->nb_points_prevus }} </td>
                     <td> {{ $joueur->position }} </td>  
-                    <td> - </td>  
+                    <td> {{ App\Joueur::getNomParticipantSelonId(1)}} </td>  
+                    @if (App\User::joueurPick() && $joueur->id_participant_fk == null) 
+                        <td>
+                            <form action="{{ route('joueurs.update', $joueur->id) }}" method="POST">
+                            {{ csrf_field() }}
+                                <button type="submit" class="btn btn-primary">Choisir</button>
+                            </form>
+                        </td>
+                    @else 
+                        <td>
+                            Joueur choisi
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>
         </table>
     </div>
+    @endsection
