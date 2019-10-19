@@ -3,15 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Joueur extends Model
 {
-    static public function joueursExistant() 
+    static public function joueursExistant()
     {
         return static::all();
     }
 
-    public static function user() {
+    public function user() {
         return $this->belongsTo('App\User');
     }
 

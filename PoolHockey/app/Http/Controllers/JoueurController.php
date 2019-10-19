@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Joueur;
 use App\Tour;
+use App\User;
 
 class JoueurController extends Controller
 {
@@ -17,7 +18,9 @@ class JoueurController extends Controller
     {
         //$joueurs = Joueur::joueursExistant();
         $joueurs = Joueur::orderbydesc('nb_points_prevus')->get();
-        return view('joueurs.index', ['joueurs' => $joueurs]);
+        $users = User::all();
+        $tours = Tour::all();
+        return view('joueurs.index', ['joueurs' => $joueurs, 'users' => $users, 'tours' => $tours]);
     }
 
     /**
@@ -72,7 +75,7 @@ class JoueurController extends Controller
      */
     public function update($id)
     {
-        $joueur = Joueur::where('id', $id)->first();        
+        $joueur = Joueur::where('id', $id)->first();
         $tour = Tour::first();
         $joueur->id_participant_fk = $tour->id_participant;
         if ($tour->id_participant == 4) {

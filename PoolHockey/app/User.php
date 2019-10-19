@@ -59,4 +59,8 @@ class User extends Authenticatable
         $participantActuel = User::where('id', $idParticipantActuel)->first();
         return $participantActuel->name;
     }
+
+    public static function getNbUsers() {
+        return static::all()->count();
+    }
 }

@@ -9,8 +9,12 @@
     @section('content')
     <div class="container">
         <h1 >Joueurs</h1>
-        <h2> Tour du participant: {{ App\User::participantActuel() }}<h2>
-        <h3> Joueur précédent choisi: {{App\Tour::joueurChoisiPrecedent()}} <h3>
+        @if($users->count() >= 4)
+            @foreach($tours as $tour)
+            <h2> Tour du participant: {{ App\User::participantActuel() }}<h2>
+            <h3> Joueur précédent choisi: {{ $tour->nom_joueur_choisi_tour_precedent }} <h3>
+                @endforeach
+        @endif
         <table class="table table-striped">
         <thead>
             <tr>
@@ -27,16 +31,16 @@
                     <td> {{ $joueur->nom_complet }} </td>
                     <td> {{ $joueur->equipe }} </td>
                     <td> {{ $joueur->nb_points_prevus }} </td>
-                    <td> {{ $joueur->position }} </td>  
-                    <td> {{ App\Joueur::getNomParticipantSelonId(1)}} </td>  
-                    @if (App\User::joueurPick() && $joueur->id_participant_fk == null) 
+                    <td> {{ $joueur->position }} </td>
+                    <td> {{ App\Joueur::getNomParticipantSelonId(3) }}</td>
+                    @if (App\User::joueurPick() && $joueur->id_participant_fk == null)
                         <td>
                             <form action="{{ route('joueurs.update', $joueur->id) }}" method="POST">
                             {{ csrf_field() }}
                                 <button type="submit" class="btn btn-primary">Choisir</button>
                             </form>
                         </td>
-                    @else 
+                    @else
                         <td>
                             Joueur choisi
                         </td>
