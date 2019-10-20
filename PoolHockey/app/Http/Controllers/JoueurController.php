@@ -21,7 +21,6 @@ class JoueurController extends Controller
      */
     public function index()
     {
-        //$joueurs = Joueur::joueursExistant();
         $joueurs = Joueur::orderbydesc('nb_points_prevus')->get();
         $users = User::all();
         $tours = Tour::all();

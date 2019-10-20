@@ -8,21 +8,21 @@
     @extends('layouts.app')
     @section('content')
     <div class="container">
-        <h1 >Joueurs</h1>
+        <h1 >{{ __('html.players') }}</h1>
         @if($users->count() >= 4)
             @foreach($tours as $tour)
-            <h2> Tour du participant: {{ App\User::participantActuel() }}<h2>
-            <h3> Joueur précédent choisi: {{ $tour->nom_joueur_choisi_tour_precedent }} <h3>
+            <h2> {{ __('html.turn') }} {{ App\User::participantActuel() }}<h2>
+            <h3> {{ __('html.lastPlayer') }} {{ $tour->nom_joueur_choisi_tour_precedent }} <h3>
                 @endforeach
         @endif
         <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Nom complet</th>
-                <th scope="col">Équipe</th>
-                <th scope="col">Nombre de points prévus</th>
-                <th scope="col">Position</th>
-                <th scope="col">Participant</th>
+                <th scope="col">{{ __('html.fullName') }}</th>
+                <th scope="col">{{ __('html.team') }}</th>
+                <th scope="col">{{ __('html.numberPoints') }}</th>
+                <th scope="col">{{ __('html.position') }}</th>
+                <th scope="col">{{ __('html.userName') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +42,7 @@
                         <td>
                             <form action="{{ route('joueurs.update', $joueur->id) }}" method="POST">
                             {{ csrf_field() }}
-                                <button type="submit" class="btn btn-primary">Choisir</button>
+                                <button type="submit" class="btn btn-primary">{{ __('html.choose') }}</button>
                             </form>
                         </td>
                     @elseif ($joueur->id_participant_fk == null)
@@ -51,7 +51,7 @@
                         </td>
                     @else
                         <td>
-                            Joueur choisi
+                            {{ __('html.playerPicked') }}
                         </td>
                     @endif
                 </tr>
