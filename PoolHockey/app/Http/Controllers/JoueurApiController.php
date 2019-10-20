@@ -2,30 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Joueur as JoueurRessource;
 use Illuminate\Http\Request;
 use App\Joueur;
-use App\Tour;
-use App\User;
 
-class JoueurController extends Controller
+class JoueurApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //$joueurs = Joueur::joueursExistant();
-        $joueurs = Joueur::orderbydesc('nb_points_prevus')->get();
-        $users = User::all();
-        $tours = Tour::all();
-
-        $listeNomUsers = array();
-        foreach($users as $user) {
-            $listeNomUsers[] = $user->name;
-        }
-        return view('joueurs.index', ['joueurs' => $joueurs, 'users' => $users, 'tours' => $tours, 'listeUsers' => $listeNomUsers]);
+        $joueurs = Joueur::where('id_participant_fk', $id)->get();
+        return new JoueurRessource($joueurs);
     }
 
     /**
@@ -78,22 +69,9 @@ class JoueurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $joueur = Joueur::where('id', $id)->first();
-        $tour = Tour::first();
-        $joueur->id_participant_fk = $tour->id_participant;
-        if ($tour->id_participant == 4) {
-            $tour->id_participant = 1;
-        }
-        else {
-            $tour->id_participant += 1;
-        }
-        $tour->nom_joueur_choisi_tour_precedent = $joueur->nom_complet;
-
-        $joueur->save();
-        $tour->save();
-        return redirect()->route("joueurs.index", $id);
+        //
     }
 
     /**

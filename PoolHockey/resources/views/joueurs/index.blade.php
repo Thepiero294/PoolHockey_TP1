@@ -32,13 +32,22 @@
                     <td> {{ $joueur->equipe }} </td>
                     <td> {{ $joueur->nb_points_prevus }} </td>
                     <td> {{ $joueur->position }} </td>
-                    <td> {{ App\Joueur::getNomParticipantSelonId(3) }}</td>
+                    @if($joueur->id_participant_fk == null)
+                        <td>-</td>
+                    @else
+                        <td> {{ App\Joueur::getNomParticipantSelonId($joueur->id_participant_fk )}}</td>
+                    @endif
+
                     @if (App\User::joueurPick() && $joueur->id_participant_fk == null)
                         <td>
                             <form action="{{ route('joueurs.update', $joueur->id) }}" method="POST">
                             {{ csrf_field() }}
                                 <button type="submit" class="btn btn-primary">Choisir</button>
                             </form>
+                        </td>
+                    @elseif ($joueur->id_participant_fk == null)
+                        <td>
+                            -
                         </td>
                     @else
                         <td>
