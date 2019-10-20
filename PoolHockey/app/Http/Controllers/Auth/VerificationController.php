@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
+/** 
+ * Classe qui crée un controlle de vérification
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class VerificationController extends Controller
 {
     /*
@@ -21,14 +26,14 @@ class VerificationController extends Controller
     use VerifiesEmails;
 
     /**
-     * Where to redirect users after verification.
+     * Où renvoyer l'utilisateur après la vérification.
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * Crée une nouvelle instance du controller.
      *
      * @return void
      */

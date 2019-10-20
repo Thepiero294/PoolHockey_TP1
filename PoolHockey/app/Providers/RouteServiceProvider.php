@@ -5,6 +5,11 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Classe qui définie le route service provider
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class RouteServiceProvider extends ServiceProvider
 {
     /**

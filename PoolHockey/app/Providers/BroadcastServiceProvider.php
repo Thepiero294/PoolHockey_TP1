@@ -5,6 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
 
+/** 
+ * Classe qui crée le provider de broadcast
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class BroadcastServiceProvider extends ServiceProvider
 {
     /**

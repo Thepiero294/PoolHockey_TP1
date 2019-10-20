@@ -7,10 +7,15 @@ use App\Joueur;
 use App\Tour;
 use App\User;
 
+/** 
+ * Classe qui crée le controller d'un joueur
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class JoueurController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Retourne une liste de ressource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,50 +34,7 @@ class JoueurController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Met à jour la ressource spécifique.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -94,16 +56,5 @@ class JoueurController extends Controller
         $joueur->save();
         $tour->save();
         return redirect()->route("joueurs.index", $id);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

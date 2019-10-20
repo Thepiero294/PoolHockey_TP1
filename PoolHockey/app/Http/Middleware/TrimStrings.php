@@ -4,6 +4,11 @@ namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 
+/** 
+ * Classe qui crée un middleware de trimage des strings
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class TrimStrings extends Middleware
 {
     /**

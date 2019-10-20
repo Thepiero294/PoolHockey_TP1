@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+/** 
+ * Classe qui le crée le controller d'identification d'un user
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class LoginController extends Controller
 {
     /*
@@ -21,14 +26,14 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Où renvoyer l'utilisateur après qu'il se soit connecté.
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * Crée une nouvelle instance du controller.
      *
      * @return void
      */

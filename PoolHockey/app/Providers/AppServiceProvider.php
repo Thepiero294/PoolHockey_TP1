@@ -5,6 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
+/** 
+ * Classe qui crée le provider des services
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**

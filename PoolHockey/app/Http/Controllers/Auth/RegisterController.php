@@ -8,6 +8,11 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/** 
+ * Classe qui crée un controller d'inscription d'un utilisateur
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class RegisterController extends Controller
 {
     /*
@@ -24,14 +29,14 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * Où l'utilisateur est renvoyé après son inscription.
      *
      * @var string
      */
     protected $redirectTo = '/joueurs';
 
     /**
-     * Create a new controller instance.
+     * Crée une nouvelle instance du controller.
      *
      * @return void
      */
@@ -41,7 +46,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Crée une validation de la requête d'inscription.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -56,7 +61,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Créer une nouvelle instance de user après que la validation soit acceptée.
      *
      * @param  array  $data
      * @return \App\User

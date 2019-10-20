@@ -4,6 +4,11 @@ namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
 
+/** 
+ * Classe qui crée un middleware de vérification des tokens csrf
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class VerifyCsrfToken extends Middleware
 {
     /**

@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
+/** 
+ * Classe qui crée un controller de remise à zéro du mot de passe
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class ResetPasswordController extends Controller
 {
     /*
@@ -21,7 +26,7 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
-     * Where to redirect users after resetting their password.
+     * Où renvoyer l'utilisateur après qu'il est réinitialiser son mot de passe.
      *
      * @var string
      */

@@ -5,6 +5,11 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/** 
+ * Classe qui crée un middleware de redirection lorsque authentifié
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class RedirectIfAuthenticated
 {
     /**

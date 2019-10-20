@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/** 
+ * Classe qui crée un controller de l'accueil
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Crée une nouvelle instance du controller.
      *
      * @return void
      */
@@ -17,7 +22,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Affiche le dashboard de l'application.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

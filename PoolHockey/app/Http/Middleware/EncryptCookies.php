@@ -4,10 +4,15 @@ namespace App\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 
+/** 
+ * Classe qui crée un middleware d'encryption des cookies.
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier.
+ */
 class EncryptCookies extends Middleware
 {
     /**
-     * The names of the cookies that should not be encrypted.
+     * Les noms des cookies qui ne devraient pas être encryptés.
      *
      * @var array
      */

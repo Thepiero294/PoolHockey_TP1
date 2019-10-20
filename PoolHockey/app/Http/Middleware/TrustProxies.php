@@ -5,6 +5,11 @@ namespace App\Http\Middleware;
 use Fideloper\Proxy\TrustProxies as Middleware;
 use Illuminate\Http\Request;
 
+/** 
+ * Classe qui crée un middleware des proxies
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class TrustProxies extends Middleware
 {
     /**

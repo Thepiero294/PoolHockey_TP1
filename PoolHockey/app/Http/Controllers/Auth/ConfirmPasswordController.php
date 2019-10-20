@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
 
+/** 
+ * Classe qui crée un controller de confirmation de mot de passe
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class ConfirmPasswordController extends Controller
 {
     /*
@@ -21,14 +26,14 @@ class ConfirmPasswordController extends Controller
     use ConfirmsPasswords;
 
     /**
-     * Where to redirect users when the intended url fails.
+     * Retourne où l'on doit renvoyer si l'url plante.
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * Crée une nouvelle instance du controller.
      *
      * @return void
      */

@@ -5,6 +5,11 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
+/** 
+ * Classe qui retourne le service provider des authentifications
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class AuthServiceProvider extends ServiceProvider
 {
     /**

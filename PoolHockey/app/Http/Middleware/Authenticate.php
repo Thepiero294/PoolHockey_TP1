@@ -4,10 +4,15 @@ namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
+/**
+ * Middleware d'identification
+ * 
+ * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
+ */
 class Authenticate extends Middleware
 {
     /**
-     * Get the path the user should be redirected to when they are not authenticated.
+     * Obtient le chemin où l'utilisateur devrait être redirigé lorsqu'il n'est pas authentifié.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return string

@@ -1,5 +1,6 @@
 <?php
 
+/** À VOIR */
 namespace App\Http\Middleware;
 
 use Closure;
