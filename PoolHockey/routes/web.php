@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
+// Route pour l'affichage du tableau de joueurs
 Route::get('/joueurs', 'JoueurController@index')->name('joueurs.index');
 
+// Route pour la mise à jour des données d'un joueur et d'un utilisateur
 Route::post('/joueurs/{id}', 'JoueurController@update')->name('joueurs.update');

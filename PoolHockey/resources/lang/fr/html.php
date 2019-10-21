@@ -21,5 +21,9 @@ return [
     'players' => 'Joueurs',
     'turn' => 'Tour du participant: ',
     'lastPlayer' => 'Dernier joueur choisi: ',
+    'maxPlayer' => 'Maximum atteint',
+    'notChoose' => '-',
+    'title' => 'Sélection des joueurs',
+    'endDraft' => 'La sélection est maintenant terminé.'
 
 ];

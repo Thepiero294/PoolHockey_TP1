@@ -11,13 +11,12 @@ use App\Joueur;
 class ClassementApiController extends Controller
 {
     /**
-     * Retourne une liste des ressources.
+     * Retourne le classement estimé selon les points
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $users = User::all();
         $joueurs1 = Joueur::where('id_participant_fk', 1)->get();
         $joueurs2 = Joueur::where('id_participant_fk', 2)->get();
         $joueurs3 = Joueur::where('id_participant_fk', 3)->get();
@@ -43,8 +42,6 @@ class ClassementApiController extends Controller
 
         $valeurs = array($valeurJ1, $valeurJ2, $valeurJ3, $valeurJ4);
         $valeursTriées = rsort($valeurs);
-
-        $nomJoueursTriés = array();
 
         $ordreParticipants = implode('/', $valeurs);
         return $ordreParticipants;

@@ -5,6 +5,11 @@
 use App\Joueur;
 use Faker\Generator as Faker;
 
+/**
+ * Factory pour la création par seed des joueurs
+ *
+ * @return Faker Pattern a suivre pour la création
+ */
 $factory->define(Joueur::class, function (Faker $faker) {
     return [
         'nom_complet' => $faker->firstNameMale . ' ' . $faker->lastName,

@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class JoueursTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seeder pour les joueurs
      *
      * @return void
      */

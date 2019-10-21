@@ -7,9 +7,9 @@ use App\Joueur;
 use App\Tour;
 use App\User;
 
-/** 
+/**
  * Classe qui crée le controller d'un joueur
- * 
+ *
  * @author Pier-Olivier Fontaine et Marc-Antoine Fournier
  */
 class JoueurController extends Controller
@@ -25,11 +25,7 @@ class JoueurController extends Controller
         $users = User::all();
         $tours = Tour::all();
 
-        $listeNomUsers = array();
-        foreach($users as $user) {
-            $listeNomUsers[] = $user->name;
-        }
-        return view('joueurs.index', ['joueurs' => $joueurs, 'users' => $users, 'tours' => $tours, 'listeUsers' => $listeNomUsers]);
+        return view('joueurs.index', ['joueurs' => $joueurs, 'users' => $users, 'tours' => $tours]);
     }
 
     /**

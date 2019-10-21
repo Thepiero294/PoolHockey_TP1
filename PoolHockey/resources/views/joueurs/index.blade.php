@@ -2,16 +2,18 @@
 
 @author Pier-Olivier Fontaine et Marc-Antoine Fournier
 -->
-
-<link href="/css/app.css" rel="stylesheet">
-        <title>Sélection des joueurs</title>
-    @extends('layouts.app')
+@extends('layouts.app')
+    <title>{{ __('html.title') }}</title>
     @section('content')
     <div class="container">
         <h1 >{{ __('html.players') }}</h1>
-        @if($users->count() >= 4)
+        @if (getNbJoueurs() == 17)
+            <h2><{{ __('html.endDraft') }}/h2>
+        @endif
+
+        @if ($users->count() >= 4)
             @foreach($tours as $tour)
-            <h2> {{ __('html.turn') }} {{ App\User::participantActuel() }}<h2>
+            <h2> {{ __('html.turn') }} {{ participantActuel() }}<h2>
             <h3> {{ __('html.lastPlayer') }} {{ $tour->nom_joueur_choisi_tour_precedent }} <h3>
                 @endforeach
         @endif
@@ -35,19 +37,27 @@
                     @if($joueur->id_participant_fk == null)
                         <td>-</td>
                     @else
-                        <td> {{ App\Joueur::getNomParticipantSelonId($joueur->id_participant_fk )}}</td>
+                        <td> {{ getNomParticipantSelonId($joueur->id_participant_fk )}}</td>
                     @endif
 
-                    @if (App\User::joueurPick() && $joueur->id_participant_fk == null)
+                    @if (joueurPick() && $joueur->id_participant_fk == null)
+                        @if (($joueur->position == 'Gardien' && getNbGardiens() < 2)
+                            || ($joueur->position == 'Attaquant' && getNbAttaquants() < 9)
+                            || ($joueur->position == 'Défenseur' && getNbDefenseurs() < 6))
+                            <td>
+                                <form action="{{ route('joueurs.update', $joueur->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary">{{ __('html.choose') }}</button>
+                                </form>
+                            </td>
+                        @else
                         <td>
-                            <form action="{{ route('joueurs.update', $joueur->id) }}" method="POST">
-                            {{ csrf_field() }}
-                                <button type="submit" class="btn btn-primary">{{ __('html.choose') }}</button>
-                            </form>
+                            {{ __('html.maxPlayer') }}
                         </td>
+                        @endif
                     @elseif ($joueur->id_participant_fk == null)
                         <td>
-                            -
+                            {{ __('html.notChoose') }}
                         </td>
                     @else
                         <td>

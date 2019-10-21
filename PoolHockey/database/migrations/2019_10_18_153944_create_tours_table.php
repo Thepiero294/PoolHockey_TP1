@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateToursTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Création de la table tour par migration
      *
      * @return void
      */
